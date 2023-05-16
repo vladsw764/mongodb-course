@@ -25,7 +25,6 @@ public class StudentController {
     @PostMapping
     public ResponseEntity<String> createStudent(@RequestBody Student student) {
         student.setCreated(LocalDateTime.now());
-        studentService.createStudent(student);
-        return new ResponseEntity<>(student.getId(), HttpStatus.CREATED);
+        return new ResponseEntity<>(studentService.createStudent(student), HttpStatus.CREATED);
     }
 }
